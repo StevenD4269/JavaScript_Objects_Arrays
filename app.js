@@ -10,3 +10,9 @@ function arraySum(numbers) {
   return sum;
 }
 console.log(arraySum(numbers));
+
+// Exercise 2
+const book = {};
+book.title = "Mistborn";
+book.numPages = 647;
+book.readCount = 3;
