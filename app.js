@@ -24,27 +24,35 @@ function arraySum(nums) {
 
 // Exercise 2
 console.log("EXERCISE 2:\n==========\n");
+// creates an object with an empty bucket
 const book = {};
+// Now we are using dot notation to place items in the empty bucket
 book.title = "Mistborn";
 book.numPages = 647;
 book.readCount = 3;
 
 book.info = function () {
+  // use "this." to specifically access a specific property in an object
   return `${this.title} by Brandon Sanderson, ${this.numPages}, read ${this.readCount} times.`;
 };
 console.log(book.info());
 
 // Exercise 3
 console.log("EXERCISE 3:\n==========\n");
+
+// We are reversing the LETTERS of the word NOT the sentence
 let sentence = "The quick brown fox jumps over the lazy dog";
 
-// Step 2: use the split command and a space between " " will split them into an array
+// Step 2: Convert into an array: use the split command and a space between " " will target the spaces and split them into an array
 let arrayOfWords = sentence.split(" ");
 
-// Step 3: turn it into a for loop to iterate over it, start at i until it reaches the length of the variable
+// Step 3: Iterate over each word: so turn it into a for loop to iterate (repeat a process) over it, start at i until it reaches the length of the variable
+// Let i=0 the zero INDEX
 for (let i = 0; i < arrayOfWords.length; i++) {
-  // Step 4: the split command will split the sentence and convert into an array of characters
-  let arrayChar = arrayOfWords[i].split("");
+  // Step 4: Convert each WORD to an array: the split command will split the CHARACTERS of the words and convert into an array of characters
+
+  const arrayChar = arrayOfWords[i].split("");
+  // we do arrayOfWords[i] will target and start at i which is the first index, so the word "the" is now ['T','h','e']
   // Step 5: create a new variable and assign it to your split variable and reverse  it with the .reverse
   let reversedArray = arrayChar.reverse();
   // Step 6: this will basically put the array of words back together
