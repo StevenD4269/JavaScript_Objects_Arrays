@@ -50,36 +50,42 @@ let arrayOfWords = sentence.split(" ");
 // Let i=0 the zero INDEX
 for (let i = 0; i < arrayOfWords.length; i++) {
   // Step 4: Convert each WORD to an array: the split command will split the CHARACTERS of the words and convert into an array of characters
-
   const arrayChar = arrayOfWords[i].split("");
   // we do arrayOfWords[i] will target and start at i which is the first index, so the word "the" is now ['T','h','e']
-  // Step 5: create a new variable and assign it to your split variable and reverse  it with the .reverse
-  let reversedArray = arrayChar.reverse();
+  // Step 5: Reverse each array of characters: create a new variable and assign it to your split variable and reverse  it with the .reverse
+  arrayChar.reverse();
   // Step 6: this will basically put the array of words back together
-  arrayOfWords[i] = reversedArray.join("");
+  arrayOfWords[i] = arrayChar.join(" ");
 }
-// convert back to a string
+
 let reversedSentence = arrayOfWords.join(" ");
+
 console.log(reversedSentence);
 
 // // Exercise 4
 console.log("EXERCISE 4:\n==========\n");
+
+// Strings can SPLIT, arrays can JOIN
 let csvData = "name,age\nFrodo,50\nSam,38\nMerry,36\nPippin,26";
 
-// Step 2: use the split command to separate each string into its own row or index. NOTE*** name, age is ONE STRING, same as Frodo,50 etc
-let turnLinesToRows = csvData.split("\n");
+// Step 2: use the split command to separate each string into its own row or index by targeting "\n". NOTE*** name, age is ONE STRING, same as Frodo,50 etc
+const turnLinesToRows = csvData.split("\n");
 // will now look like ['name,age', 'Frodo,50', 'Sam,38', 'Merry,36', 'Pippin,26'], so 5 strings/indexes
 
-// Step 3: create new variable that takes your new rows and separates them into its own header, 0 is the first index aka "name,age"  that it accesses
+// Step 3: Split row into headers: create new variable that takes your new rows and separates them into its own header, 0 is the first index aka "name,age"  that it accesses
 // turnlinestorows[0] accesses the first index
 // the split(",") command is really taking ["name,age"] and turning it into ["name", "age"], so substrings of the strings, so one string becomes two
-let firstRowSplitIntoArray = turnLinesToRows[0].split(",");
+const headers = turnLinesToRows[0].split(",");
 
-// // Step 4: create a for loop to iterate over each array
+// // Step 4: Iterate over each array: create a for loop to iterate over each array
 for (let i = 0; i < turnLinesToRows.length; i++) {
-  //
-  let splitTheData = csvData.slice(firstRowSplitIntoArray);
-  console.log(splitTheData);
-}
+  const rowData = turnLinesToRows[i].split(",");
 
-// console.log(splitTheData);
+  // Create an object to store the data
+  const tempObj = {
+    name: rowData[0],
+    age: parseInt(rowData[1]), // Convert age to integer
+  };
+
+  console.log(tempObj); // Output the object for each row
+}
